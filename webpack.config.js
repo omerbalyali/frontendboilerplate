@@ -8,11 +8,12 @@ const cssnext = require('postcss-cssnext');
 const precss = require('precss');
 const autoprefixer = require('autoprefixer');
 const file = require('file-loader');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
 
 const DEVELOPMENT = process.env.NODE_ENV == JSON.stringify('development');
 const PRODUCTION = process.env.NODE_ENV == JSON.stringify('production');
 
-const baseURL = 'http://localhost:8080';
+const baseURL = 'http://localhost:3100';
 
 const entry = PRODUCTION
       ?    [ './app.js']
@@ -33,6 +34,20 @@ const plugins = PRODUCTION
               }),
             ]
       :     [ // DEVELOPMENT
+              new BrowserSyncPlugin(
+                {
+                  host: 'localhost',
+                  port: 3000,
+                  // proxy the Webpack Dev Server endpoint
+                  proxy: 'http://localhost:3100/'
+                },
+                // plugin options
+                {
+                  // prevent BrowserSync from reloading the page
+                  // and let Webpack Dev Server take care of this
+                  reload: false
+                }
+              ),
               // enable HMR globally
               new webpack.HotModuleReplacementPlugin(),
               // prints more readable module names in the browser console on HMR updates

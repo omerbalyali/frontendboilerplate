@@ -1,8 +1,26 @@
 :root {
-  --mainColor: color(#d7d14f saturation(80%));
+  --mainColor: hsl(160, 70%, 50%);
 }
 
 body {
   font-family: "Roboto Condensed";
   background-color: var(--mainColor);
+}
+
+.flexcontainer {
+  display: flex;
+  flex-flow: row wrap;
+  width: 99vw;
+  height: 97vh;
+
+  & div {
+    height: 100px;
+    flex: 1 1 0;
+    background: #fff;
+    margin: 6px 6px 0;
+
+    &:nth-child(3){
+      align-self: center;
+    }
+  }
 }
