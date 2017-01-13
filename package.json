@@ -1,0 +1,39 @@
+{
+  "name": "FrontendBoilerplate",
+  "version": "1.0.0",
+  "author": "Omer Balyali",
+  "main": "index.js",
+  "license": "MIT",
+  "devDependencies": {
+    "autoprefixer": "^6.6.1",
+    "babel-core": "^6.21.0",
+    "babel-eslint": "^7.1.1",
+    "babel-loader": "^6.2.10",
+    "babel-preset-es2015": "^6.18.0",
+    "babel-preset-stage-2": "^6.18.0",
+    "css-loader": "^0.26.1",
+    "eslint": "^3.13.1",
+    "eslint-config-airbnb-base": "^11.0.1",
+    "eslint-plugin-babel": "^4.0.0",
+    "eslint-plugin-import": "latest",
+    "extract-text-webpack-plugin": "2.0.0-beta.4",
+    "file-loader": "^0.9.0",
+    "html-webpack-plugin": "2.26.0",
+    "lost": "^8.0.0",
+    "postcss-cssnext": "^2.9.0",
+    "postcss-font-magician": "^1.6.0",
+    "postcss-loader": "^1.2.1",
+    "precss": "^1.4.0",
+    "rimraf": "^2.5.4",
+    "rucksack-css": "^0.9.1",
+    "style-loader": "^0.13.1",
+    "webpack": "2.2.0-rc.3",
+    "webpack-dev-server": "2.2.0-rc.0"
+  },
+  "scripts": {
+    "build": "yarn run clean && NODE_ENV=production webpack --progress --colors",
+    "dev": "yarn run clean && NODE_ENV=development node dev-server.js",
+    "clean": "rimraf dist/",
+    "lint": "eslint src"
+  }
+}
